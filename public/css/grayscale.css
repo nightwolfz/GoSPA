@@ -37,8 +37,9 @@ a:focus {
     background-color: #000;
 }
 
-.navbar-custom .navbar-brand {
+.navbar-header .navbar-brand {
     font-weight: 700;
+	margin-left: 0 !important;
 }
 
 .navbar-custom .navbar-brand:focus {
@@ -243,7 +244,7 @@ a:focus {
 
 .download-section {
     width: 100%;
-    padding: 50px 0;
+    padding: 0;
     color: #fff;
     background-color: #000;
     -webkit-background-size: cover;
@@ -256,12 +257,6 @@ a:focus {
     width: 100%;
     height: 200px;
     margin-top: 100px;
-}
-
-@media(min-width:767px) {
-    .download-section {
-        padding: 100px 0;
-    }
 }
 
 .btn {
