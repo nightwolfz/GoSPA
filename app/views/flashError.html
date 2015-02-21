@@ -1,0 +1,15 @@
+{{if or .errors .flash.error}}
+<div class="row" align="center">
+	<div class="alert alert-warning col-sm-6 col-md-3" style="float:none">
+		{{if .flash.error}}
+			{{.flash.error}}
+		{{end}}
+		<ul>
+			{{range .errors}}
+				<li>{{.}}</li>
+			{{end}}
+		</ul>
+	</div>
+</div>
+{{end}}
+	
