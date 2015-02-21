@@ -1,37 +1,42 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/revel/revel"
 	"sequoia/app/models"
 )
 
-type App struct {
+type Index struct {
 	*revel.Controller
 }
 
-func (c App) Index() revel.Result {
+func (c Index) Index() revel.Result {
 
 	greeting := "SEQUOIA"
 
 	return c.Render(greeting)
 }
 
-func (c App) Mail(post models.Talent) revel.Result {
+func (c Index) Contact(post models.Talent) revel.Result {
 
-	c.Validation.Required(post.Name).Message("Please include your name.")
-	c.Validation.Required(post.Phone).Message("Please include your phone.")
-	c.Validation.Required(post.Email).Message("Please include your email.")
+	//c.Validation.Required(post.Name).Message("Please include your name.")
+	//c.Validation.Required(post.Phone).Message("Please include your phone.")
+	//c.Validation.Required(post.Email).Message("Please include your email.")
 	/*c.Validation.Required(post.Reference).Message("Please cite who has refered you to us.")
 	c.Validation.Required(post.CV).Message("Please attach your CV.")*/
 
 	if c.Validation.HasErrors() {
 		c.Validation.Keep()
 		c.FlashParams()
-		return c.Redirect(App.Index)
+		return c.Redirect(Index.Index)
 	}
 
-	c.Flash.Success("we_got_mail")
+	post.Name = "money!"
 
-	//return c.Render(post.Email)
-	return c.Redirect(App.Index)
+	fmt.Printf("%+v", post.Name)
+
+	//c.Flash.Success("we_got_mail")
+
+	return c.Render(post)
+	//return c.Redirect(Index.Contact, post)
 }

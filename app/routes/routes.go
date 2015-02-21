@@ -4,24 +4,24 @@ package routes
 import "github.com/revel/revel"
 
 
-type tApp struct {}
-var App tApp
+type tIndex struct {}
+var Index tIndex
 
 
-func (_ tApp) Index(
+func (_ tIndex) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("App.Index", args).Url
+	return revel.MainRouter.Reverse("Index.Index", args).Url
 }
 
-func (_ tApp) Mail(
+func (_ tIndex) Contact(
 		post interface{},
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "post", post)
-	return revel.MainRouter.Reverse("App.Mail", args).Url
+	return revel.MainRouter.Reverse("Index.Contact", args).Url
 }
 
 

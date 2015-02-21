@@ -29,24 +29,27 @@ func main() {
 	revel.Init(*runMode, *importPath, *srcPath)
 	revel.INFO.Println("Running revel server")
 	
-	revel.RegisterController((*controllers.App)(nil),
+	revel.RegisterController((*controllers.Index)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					16: []string{ 
+					17: []string{ 
 						"greeting",
 					},
 				},
 			},
 			&revel.MethodType{
-				Name: "Mail",
+				Name: "Contact",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((*models.Talent)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
+					40: []string{ 
+						"post",
+					},
 				},
 			},
 			
@@ -110,11 +113,6 @@ func main() {
 		})
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
-		"sequoia/app/controllers.App.Mail": { 
-			21: "post.Name",
-			22: "post.Phone",
-			23: "post.Email",
-		},
 		"sequoia/app/models.(*Talent).Validate": { 
 			17: "t.Name",
 			23: "t.Email",

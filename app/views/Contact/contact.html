@@ -1,15 +1,18 @@
+<p>&nbsp;</p>
 
+{{template "flashSuccess.html" .}}
+{{template "flashError.html" .}}
 
-<div class="row">
+<!--<div class="row">
 	<div class="col-xs-6" align="left">
 		<span class="icon-mail" style="font-size:62px;"></span>
 	</div>
 	<div class="col-xs-6" align="right">
 		<span class="icon-phone-outline" style="font-size:54px;"></span>
 	</div>
-</div>
+</div>-->
 
-<div role="tabpanel">
+<div role="tabpanel" id="contact-form"  class="col-lg-8">
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
@@ -26,35 +29,35 @@
     <div role="tabpanel" class="tab-pane fade in active" id="application">
 	<br>
 	
-	<form action="/App/Mail" method="POST" class="form-horizontal">
+	<form action="/Contact" method="POST" class="form-horizontal" enctype="multipart/form-data">
 	  <div class="form-group">
 	    <label for="name" class="col-sm-3 control-label">Name</label>
 		<div class="col-sm-9">
-	    	<input type="text" name="Name" class="form-control" id="name" placeholder="Enter your name...">
+	    	<input type="text" name="post.Name" class="form-control" id="name" placeholder="Enter your name...">
 	  	</div>
 	  </div>
 	  <div class="form-group">
 	    <label for="phone" class="col-sm-3 control-label">Phone</label>
 		<div class="col-sm-9">
-	    	<input type="tel" name="Phone" class="form-control" id="phone" placeholder="Eg. +32400000000">
+	    	<input type="tel" name="post.Phone" class="form-control" id="phone" placeholder="Eg. +32400000000">
 	  	</div>
 	  </div>
 	  <div class="form-group">
 	    <label for="email" class="col-sm-3 control-label">Email</label>
 		<div class="col-sm-9">
-	    	<input type="email" name="Email" class="form-control" id="email" placeholder="example@gmail.com">
+	    	<input type="email" name="post.Email" class="form-control" id="email" placeholder="example@gmail.com">
 	  	</div>
 	  </div>
 	  <div class="form-group">
 	    <label for="cv" class="col-sm-3 control-label">Attach CV</label>
 		<div class="col-sm-9">
-	    	<input type="file" name="CV" id="cv">
+	    	<input type="file" name="post.CV" id="cv">
 	  	</div>
 	  </div>
 	  <div class="form-group">
 	    <label for="email" class="col-sm-3 control-label">References</label>
 	    <div class="col-sm-9">
-			<input type="text" name="Reference" class="form-control" id="email" placeholder="Enter references if any...">
+			<input type="text" name="post.Reference" class="form-control" id="email" placeholder="Enter references if any...">
 	  	</div>
 	  </div>
 	  <div class="form-group">
@@ -79,5 +82,6 @@
 	
 	</div>
   </div>
+
 
 </div>

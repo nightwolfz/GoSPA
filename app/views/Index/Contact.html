@@ -1,0 +1,24 @@
+{{template "header.html" .}}
+
+<section id="contact" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2" align="center">
+		
+		<p>&nbsp;</p>
+
+		{{with $field := field "post.Email" .}}
+			<p>We got mail: {{$field.Value}}</p>
+		{{end}}
+		
+		{{with $field := field "post.Phone" .}}
+			<p>We got phone: {{$field.Value}}</p>
+		{{end}}
+		
+		
+		<p>Hello {{.post.Name}}</p>
+
+        </div>
+    </div>
+</section>
+
+{{template "footer.html" .}}
