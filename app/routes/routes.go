@@ -24,6 +24,13 @@ func (_ tIndex) Contact(
 	return revel.MainRouter.Reverse("Index.Contact", args).Url
 }
 
+func (_ tIndex) SendEmail(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Index.SendEmail", args).Url
+}
+
 
 type tStatic struct {}
 var Static tStatic

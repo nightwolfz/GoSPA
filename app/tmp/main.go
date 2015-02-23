@@ -47,8 +47,17 @@ func main() {
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((*models.Talent)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					40: []string{ 
+					46: []string{ 
 						"post",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "SendEmail",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					58: []string{ 
 					},
 				},
 			},

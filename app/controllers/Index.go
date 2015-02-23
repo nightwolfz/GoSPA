@@ -37,6 +37,23 @@ func (c Index) Contact(post models.Talent) revel.Result {
 
 	//c.Flash.Success("we_got_mail")
 
+	email := new(models.Email)
+	email.From = "noreply@ragefx.com"
+	email.To = "ryan@megidov.com"
+	email.Body = "This is a sample body!"
+	email.Send()
+
 	return c.Render(post)
 	//return c.Redirect(Index.Contact, post)
+}
+
+func (c Index) SendEmail() revel.Result {
+
+	email := new(models.Email)
+	email.From = "noreply@ragefx.com"
+	email.To = "ryan@megidov.com"
+	email.Body = "This is a sample body!"
+	email.Send()
+
+	return c.Render(email.Body)
 }

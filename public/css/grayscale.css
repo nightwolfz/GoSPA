@@ -39,6 +39,7 @@ a:focus {
 
 .navbar-header .navbar-brand {
     font-weight: 700;
+	font-family: "Segoe UI Light","Segoe Light", Segoe, Arial, sans-serif;
 	margin-left: 0 !important;
 }
 
@@ -66,6 +67,7 @@ a:focus {
 }
 
 .navbar-custom .nav li a {
+	font-family: "Segoe UI Light","Segoe Light", Segoe, Arial, sans-serif;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
@@ -126,6 +128,9 @@ a:focus {
     .navbar-custom.top-nav-collapse {
         border-bottom: 1px solid rgba(255,255,255,.3);
     }
+	.navbar-nav > li > a {
+		padding: 10px 20px;
+	}
 	.brand-heading {
 		max-width: 10em;
 	}
