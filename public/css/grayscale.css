@@ -145,7 +145,7 @@ a:focus {
 /* very big */
 @media(min-width:1400px) {
 	.brand-heading {
-		max-width: 20em;
+		max-width: 11em;
 	}
 }
 
@@ -170,7 +170,9 @@ a:focus {
 }
 
 .intro .intro-body .intro-text {
-    font-size: 18px;
+	font-size: 30px;
+	width: 11em;
+	text-shadow: 1px 1px 1px #000;
 }
 
 @media(min-width:767px) {
