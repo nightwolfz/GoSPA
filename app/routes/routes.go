@@ -24,11 +24,34 @@ func (_ tIndex) Contact(
 	return revel.MainRouter.Reverse("Index.Contact", args).Url
 }
 
-func (_ tIndex) SendEmail(
+
+type tTestRunner struct {}
+var TestRunner tTestRunner
+
+
+func (_ tTestRunner) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Index.SendEmail", args).Url
+	return revel.MainRouter.Reverse("TestRunner.Index", args).Url
+}
+
+func (_ tTestRunner) Run(
+		suite string,
+		test string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "suite", suite)
+	revel.Unbind(args, "test", test)
+	return revel.MainRouter.Reverse("TestRunner.Run", args).Url
+}
+
+func (_ tTestRunner) List(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("TestRunner.List", args).Url
 }
 
 
@@ -58,36 +81,6 @@ func (_ tStatic) ServeModule(
 	revel.Unbind(args, "prefix", prefix)
 	revel.Unbind(args, "filepath", filepath)
 	return revel.MainRouter.Reverse("Static.ServeModule", args).Url
-}
-
-
-type tTestRunner struct {}
-var TestRunner tTestRunner
-
-
-func (_ tTestRunner) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("TestRunner.Index", args).Url
-}
-
-func (_ tTestRunner) Run(
-		suite string,
-		test string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "suite", suite)
-	revel.Unbind(args, "test", test)
-	return revel.MainRouter.Reverse("TestRunner.Run", args).Url
-}
-
-func (_ tTestRunner) List(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("TestRunner.List", args).Url
 }
 
 

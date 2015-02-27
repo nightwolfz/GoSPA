@@ -2,15 +2,35 @@ package models
 
 import (
 	"bytes"
-	"log"
-	"net/smtp"
+	"github.com/revel/revel/mail"
+	//"log"
+	//"net/smtp"
 )
 
 type Email struct {
-	Smtp, From, To, Body string
+	To                  []string
+	Subject, From, Body string
+	TemplatePath        string
 }
 
-func (t Email) Send() {
+func (t Email) SendEmail(args map[string]interface{}) {
+
+	/*auth := smtp.PlainAuth("",
+		username,
+		password,
+		server,
+	)*/
+
+	mailer := mail.Mailer{Server: "127.0.0.1", Port: 25 /*, UserName:username, Password:password, Auth:auth*/}
+	message := mail.NewHtmlMessage(t.To, t.Subject, t.Body)
+	err := message.RenderTemplate(t.TemplatePath, args)
+	if err != nil {
+		message.HtmlBody = bytes.NewBufferString(t.Body)
+	}
+	mailer.SendMessage(message)
+}
+
+/*func (t Email) Send2() {
 
 	// Connect to the remote SMTP server.
 	c, err := smtp.Dial("127.0.0.1:25")
@@ -33,4 +53,4 @@ func (t Email) Send() {
 	if _, err = buf.WriteTo(wc); err != nil {
 		log.Fatal(err)
 	}
-}
+}*/

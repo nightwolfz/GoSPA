@@ -1,9 +1,10 @@
 
 html, body {
-	width: 100%;
 	height: 100%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
+	background-color: #8AB568;
 }
 /*
 body {
@@ -12,11 +13,15 @@ body {
 
 .navbar-nav li {
 	color: #fff;
-	background: #333;
 }
 .navbar-nav li.active {
 	color: #fff;
 	background: #555;
+	background: rgba(0, 0, 0, 0.90);
+}
+.page-scroll {
+	padding: 10px 20px;
+	display: block;
 }
 
 #contact {
@@ -42,7 +47,6 @@ body {
     /*display: table;
     vertical-align: middle;*/
 	height: 100%;
-	width: 100%;
 	padding: 0;
 }
 
@@ -71,9 +75,9 @@ h1 {
 	font-size: 4em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: bold;
-	margin-top: 1em;
+	margin-top: 3em;
 	cursor: default;
-	/*text-shadow: -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000, 1px 1px 2px #000; */
+	text-shadow: -1px -1px 2px #555, 1px -1px 2px #555, -1px 1px 2px #555, 1px 1px 2px #555;
 }
 
 h3 {
@@ -90,7 +94,7 @@ h4 {
 	font-size: 24px;
 	font-variant: small-caps;
 	cursor: default;
-	opacity: 0.7;
+	opacity: 0.8;
 }
 
 .brand-text {
@@ -167,6 +171,12 @@ h4 {
 	height: 90%;
 }
 
+.our-solutions div h4 {
+	color: #fff;
+	background: #000;
+	padding: 10px;
+	display: block;
+}
 
 
 
