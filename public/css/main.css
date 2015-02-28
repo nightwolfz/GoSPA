@@ -4,7 +4,7 @@ html, body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: #8AB568;
+	background-color: #eee;
 }
 /*
 body {
@@ -20,8 +20,10 @@ body {
 	background: rgba(0, 0, 0, 0.90);
 }
 .page-scroll {
-	padding: 10px 20px;
+	font-family: 'Droid Sans', sans-serif;
+	padding: 10px 14px;
 	display: block;
+	cursor: default;
 }
 
 #contact {
@@ -29,12 +31,9 @@ body {
 }
 
 #contact-form {
-	background: #f3f3f3;
 	padding: 16px;
 	text-align: left;
-	border-radius: 5px;
 	float: none;
-	z-index: 99999;
 }
 
 .dotted {
@@ -75,17 +74,21 @@ h1 {
 	font-size: 4em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: bold;
-	margin-top: 3em;
+	margin-top: 2em;
 	cursor: default;
 	text-shadow: -1px -1px 2px #555, 1px -1px 2px #555, -1px 1px 2px #555, 1px 1px 2px #555;
 }
 
+h2 {
+	cursor: default;
+}
+
 h3 {
 	color: #fff;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Droid Sans', sans-serif;
 	font-size: 24px;
-	text-shadow: 1px 1px 2px #000; 
 	cursor: default; 
+	text-shadow: -1px -1px 2px #333, 1px -1px 2px #333, -1px 1px 2px #333, 1px 1px 2px #333;
 }
 
 h4 {
@@ -113,6 +116,38 @@ h4 {
   position: absolute;
   left:-150px;
   top:-150px;*/
+}
+
+.nav-tabs {
+	border: 0;
+}
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus {
+	border: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+	border-radius: 4px;
+}
+.nav-tabs > li > a:hover {
+	border: 1px solid #ddd !important;
+	border-color: #eee #eee #ddd;
+	border-radius: 4px;
+}
+
+.container > .navbar-header, 
+.container-fluid > .navbar-header, 
+.container > .navbar-collapse, 
+.container-fluid > .navbar-collapse {
+	margin-right: 30px;
+}
+
+.form-control {
+	border: 2px solid #9B0;
+}
+
+#scroll-info {
+	color: #fff;
+	background: #000;
 }
 
 @-webkit-keyframes move {
@@ -174,6 +209,7 @@ h4 {
 .our-solutions div h4 {
 	color: #fff;
 	background: #000;
+	background: rgba(0, 0, 0, 0.76);
 	padding: 10px;
 	display: block;
 }

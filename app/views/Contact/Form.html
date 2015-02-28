@@ -25,61 +25,66 @@
   </ul>
 
   <!-- Tab panes -->
-  <div class="tab-content">
+  <div class="tab-content"><br>
+
     <div role="tabpanel" class="tab-pane fade in active" id="application">
-	<br>
-	
-	<form action="/Contact" method="POST" class="form-horizontal" enctype="multipart/form-data">
-	  <div class="form-group">
-	    <label for="name" class="col-sm-3 control-label">Name</label>
-		<div class="col-sm-9">
-	    	<input type="text" name="post.Name" class="form-control" id="name" placeholder="Enter your name...">
-	  	</div>
-	  </div>
-	  <div class="form-group">
-	    <label for="phone" class="col-sm-3 control-label">Phone</label>
-		<div class="col-sm-9">
-	    	<input type="tel" name="post.Phone" class="form-control" id="phone" placeholder="Eg. +32400000000">
-	  	</div>
-	  </div>
-	  <div class="form-group">
-	    <label for="email" class="col-sm-3 control-label">Email</label>
-		<div class="col-sm-9">
-	    	<input type="email" name="post.Email" class="form-control" id="email" placeholder="example@gmail.com">
-	  	</div>
-	  </div>
-	  <div class="form-group">
-	    <label for="cv" class="col-sm-3 control-label">Attach CV</label>
-		<div class="col-sm-9">
-	    	<input type="file" name="post.CV" id="cv">
-	  	</div>
-	  </div>
-	  <div class="form-group">
-	    <label for="email" class="col-sm-3 control-label">References</label>
-	    <div class="col-sm-9">
-			<input type="text" name="post.Reference" class="form-control" id="email" placeholder="Enter references if any...">
-	  	</div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-sm-offset-3 col-sm-10">
-	      <button type="submit" class="btn btn-info">Send Application</button>
-	    </div>
-	  </div>
-	</form>
-	
-	
-	
-	
-	
+		<form action="/Contact" method="POST" enctype="multipart/form-data">
+		  <div class="form-group">
+		    <label for="name">Full name</label>
+		    <input type="text" name="post.Name" class="form-control" id="name" placeholder="Enter your name...">
+		  </div>
+		  <div class="form-group">
+		    <label for="phone">Phone</label>
+			<input type="tel" name="post.Phone" class="form-control" id="phone" placeholder="Eg. +32400000000">
+		  </div>
+		  <div class="form-group">
+		    <label for="email">Email</label>
+			<input type="email" name="post.Email" class="form-control" id="email" placeholder="example@gmail.com">
+		  </div>
+		  <div class="form-group">
+		    <label for="cv">Attach CV</label>
+			<input type="file" name="post.CV" id="cv">
+		  </div>
+		  <div class="form-group">
+		    <label for="email">Refered By</label>
+		    <input type="text" name="post.Reference" class="form-control" id="email" placeholder="Enter references if any...">
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-3 col-sm-10">
+		      <button type="submit" class="btn btn-info">Send Application</button>
+		    </div>
+		  </div>
+		</form>
 	</div>
+	
     <div role="tabpanel" class="tab-pane fade" id="client">
-	<br>
-	
-	
-	
-	
-	
-	
+		<form action="/Contact" method="POST" enctype="multipart/form-data">
+		  <div class="form-group">
+		    <label for="name">Full name</label>
+		    <input type="text" name="post.Name" class="form-control" id="name" placeholder="Enter your name...">
+		  </div>
+		  <div class="form-group">
+		    <label for="company">Company</label>
+			<input type="tel" name="post.Company" class="form-control" id="company" placeholder="My Company">
+		  </div>
+		  <div class="form-group">
+		    <label for="phone">Job Title</label>
+			<input type="tel" name="post.Phone" class="form-control" id="phone" placeholder="Eg. +32400000000">
+		  </div>
+		  <div class="form-group">
+		    <label for="email">Email</label>
+			<input type="email" name="post.Email" class="form-control" id="email" placeholder="name@company.com">
+		  </div>
+		  <div class="form-group">
+		    <label for="email">Refered By</label>
+		    <input type="text" name="post.Reference" class="form-control" id="email" placeholder="Enter references if any...">
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-3 col-sm-10">
+		      <button type="submit" class="btn btn-info">Send Application</button>
+		    </div>
+		  </div>
+		</form>
 	</div>
   </div>
 
