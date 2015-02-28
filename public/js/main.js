@@ -1,8 +1,12 @@
 $(document).ready(function(){
 	
 	$('#contact-button').on('click', function(){
-		$('#intro-box').fadeOut(1000, function(){
-			$('#contact-box').fadeIn(1000, function(){});
+		$('#intro-box').fadeOut(500, function(){
+			//$('#contact-box').fadeIn(1000, function(){
+				$('.intro').fadeOut(500, function(){
+					$('#scroll-contact').fadeIn(1000);
+				});
+			//});
 		});
 	});
 	

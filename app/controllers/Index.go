@@ -17,7 +17,7 @@ func (c Index) Index() revel.Result {
 	return c.Render(greeting)
 }
 
-func (c Index) Contact(post models.Talent) revel.Result {
+func (c Index) Contact(post models.Contact) revel.Result {
 
 	//c.Validation.Required(post.Name).Message("Please include your name.")
 	//c.Validation.Required(post.Phone).Message("Please include your phone.")

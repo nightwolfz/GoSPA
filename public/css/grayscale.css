@@ -190,15 +190,17 @@ a:focus {
 }
 
 .btn-circle {
-    width: 70px;
-    height: 70px;
-    margin-top: 15px;
-    padding: 7px 16px;
-    border: 2px solid #fff;
-    border-radius: 35px;
-    font-size: 40px;
+	width: 70px;
+	height: 70px;
+	font-size: 53px;
+	margin-right: 2px;
+	margin-top: 15px;
+	padding: 0px 14px;
+	border: 2px solid #fff;
+	border-radius: 35px;
     color: #fff;
-    background: 0 0;
+    background: rgba(100, 100, 100, 0.44);
+	cursor: pointer;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
@@ -208,7 +210,7 @@ a:focus {
 .btn-circle:focus {
     outline: 0;
     color: #fff;
-    background: rgba(255,255,255,.1);
+    background: rgba(0, 0, 0, 0.64);
 }
 
 .btn-circle i.animated {
