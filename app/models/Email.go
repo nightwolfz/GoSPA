@@ -1,10 +1,9 @@
 package models
 
 import (
-	"bytes"
+	//"bytes"
 	"github.com/revel/revel/mail"
-	//"log"
-	//"net/smtp"
+	"log"
 )
 
 type Email struct {
@@ -15,42 +14,32 @@ type Email struct {
 
 func (t Email) SendEmail(args map[string]interface{}) {
 
-	/*auth := smtp.PlainAuth("",
-		username,
-		password,
-		server,
-	)*/
+	server := "127.0.0.1"
+    /*server := "smtp-auth.mailprotect.be"
+    username := "email address of sender"
+    password := "password"*/
+ 
+    auth := smtp.PlainAuth("",
+        username,
+        password,
+        server,
+    )
 
-	mailer := mail.Mailer{Server: "127.0.0.1", Port: 25 /*, UserName:username, Password:password, Auth:auth*/}
-	message := mail.NewHtmlMessage(t.To, t.Subject, t.Body)
+
+	mailer := mail.Mailer{Server: Server:server, Port: 2525/*, UserName:username, Password:password, Auth:auth*/}
+	message := mail.Message{
+		From:      t.From,
+		To:        t.To,
+		Subject:   t.Subject,
+	}
+
 	err := message.RenderTemplate(t.TemplatePath, args)
 	if err != nil {
-		message.HtmlBody = bytes.NewBufferString(t.Body)
+		log.Println(err)
 	}
-	mailer.SendMessage(message)
+
+	err = mailer.SendMessage(&message)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
-
-/*func (t Email) Send2() {
-
-	// Connect to the remote SMTP server.
-	c, err := smtp.Dial("127.0.0.1:25")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Set the sender and recipient.
-	c.Mail(t.From)
-	c.Rcpt(t.To)
-
-	// Send the email body.
-	wc, err := c.Data()
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer wc.Close()
-
-	buf := bytes.NewBufferString(t.Body)
-	if _, err = buf.WriteTo(wc); err != nil {
-		log.Fatal(err)
-	}
-}*/
