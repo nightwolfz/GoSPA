@@ -19,14 +19,14 @@ func (t Email) SendEmail(args map[string]interface{}) {
     username := "email address of sender"
     password := "password"*/
  
-    auth := smtp.PlainAuth("",
+    /*auth := smtp.PlainAuth("",
         username,
         password,
         server,
-    )
+    )*/
 
 
-	mailer := mail.Mailer{Server: Server:server, Port: 2525/*, UserName:username, Password:password, Auth:auth*/}
+	mailer := mail.Mailer{Server: server, Port: 25/*, UserName:username, Password:password, Auth:auth*/}
 	message := mail.Message{
 		From:      t.From,
 		To:        t.To,
