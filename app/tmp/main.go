@@ -47,7 +47,7 @@ func main() {
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((*models.Contact)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					40: []string{ 
+					44: []string{ 
 						"post",
 					},
 				},
@@ -114,9 +114,9 @@ func main() {
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 		"sequoia/app/models.(*Contact).Validate": { 
-			19: "t.Name",
-			26: "t.Email",
-			34: "t.Phone",
+			21: "t.Name",
+			28: "t.Email",
+			36: "t.Phone",
 		},
 	}
 	revel.TestSuites = []interface{}{ 

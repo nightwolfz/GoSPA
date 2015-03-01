@@ -25,13 +25,17 @@ func (c Index) Contact(post models.Contact) revel.Result {
 		return c.Redirect(Index.Index)
 	}
 
-	post.Name = "money!"
-
 	var args = make(map[string]interface{})
-	args["FirstName"] = "Whizdumb"
+	args["info"] = post
 
 	email := new(models.Email)
-	email.Subject = fmt.Sprintf("New Contact: %s", post.Name)
+
+	if post.IsClient {
+		email.Subject = fmt.Sprintf("Client: %s", post.Name)
+	} else {
+		email.Subject = fmt.Sprintf("Talent: %s", post.Name)
+	}
+
 	email.From = "sales@sequoia-projects.be"
 	email.To = []string{"ryan@megidov.com"}
 	email.TemplatePath = "Contact/Email.template"

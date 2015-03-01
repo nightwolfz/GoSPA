@@ -8,7 +8,9 @@ type Contact struct {
 	Name, Company, Job      string
 	Email, Phone, Reference string
 	CV                      []byte
+	IsClient 				bool
 }
+
 
 func (t *Contact) Validate(v *revel.Validation) {
 

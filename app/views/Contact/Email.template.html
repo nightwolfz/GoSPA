@@ -1,7 +1,39 @@
 <html>
+<head>
+	<style type="text/css">
+	table {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 14px;
+		border: 2px solid #ccc;
+	}
+	table td, table th {
+		padding: 8px;
+		text-align: left;
+	}
+	table tr:nth-child(odd) td, table tr:nth-child(odd) th {
+		background: #f3f3f3;
+	}
+	</style>
+</head>
 <body>
-	<p>This is a test email.</p>
+	{{if .info.IsClient}}
+		<p>We received a <b>"Client"</b> request from sequoia-projects.be</p>
+	{{else}}
+		<p>We received a <b>"Talent"</b> request from sequoia-projects.be</p>
+	{{end}}
 
-	<p>Hello !</p>
+	<table width="600">
+		<tr><th>Name</th><td>{{.info.Name}}</td></tr>
+		{{if .info.IsClient}}
+		<tr><th>Company</th><td>{{.info.Company}}</td></tr>
+		<tr><th>Job</th><td>{{.info.Job}}</td></tr>
+		{{end}}
+		<tr><th>Email</th><td>{{.info.Email}}</td></tr>
+		<tr><th>Phone</th><td>{{.info.Phone}}</td></tr>
+		<tr><th>Reference</th><td>{{.info.Reference}}</td></tr>
+		{{if not .info.IsClient}}
+		<tr><th>CV</th><td>[Not implemented yet]</td></tr>
+		{{end}}
+	</table>
 </body>
 </html>

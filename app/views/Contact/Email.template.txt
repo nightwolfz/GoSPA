@@ -1,0 +1,14 @@
+{{if .info.IsClient}}
+	We received a "Client" request from sequoia-projects.be
+{{else}}
+	We received a "Talent" request from sequoia-projects.be
+{{end}}
+
+
+Name:       {{.info.Name}}
+Company:    {{.info.Company}}
+Job:        {{.info.Job}}
+Email:      {{.info.Email}}
+Phone:      {{.info.Phone}}
+Reference:  {{.info.Reference}}
+CV:         [Not implemented yet]
