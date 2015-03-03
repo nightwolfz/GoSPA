@@ -121,9 +121,9 @@ a:focus {
     .navbar {
         padding: 0;
         border-bottom: 0;
-        background: #000;
-		-moz-box-shadow: 0 0 4px 4px #000;
-		box-shadow: 0 0 4px 4px #000;
+        background: #1A222A;
+		/*-moz-box-shadow: 0 0 4px 4px #222c37;
+		box-shadow: 0 0 4px 4px #222c37;*/
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -294,17 +294,19 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid #219ab3;
-    color: #219ab3;
-    background-color: transparent;
+	border: 1px solid #222c37;
+	color: #fff;
+	background-color: #222c37;
+	padding: 0.6em 3em;
+	font-size: 1.1em;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #219ab3;
-    outline: 0;
-    color: #000;
-    background-color: #219ab3;
+	border: 1px solid #1B6912;
+	outline: 0;
+	color: #FFF;
+	background-color: #2C8010;
 }
 
 ul.banner-social-buttons {

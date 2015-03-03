@@ -6,6 +6,10 @@ html, body {
 	padding: 0;
 	background-color: #eee;
 }
+
+#page-top {}
+
+
 /*
 body {
 	background: #0E2232 url('/public/img/bg.jpg') repeat;
@@ -98,7 +102,6 @@ h4 {
 	font-size: 24px;
 	font-variant: small-caps;
 	cursor: default;
-	opacity: 0.8;
 }
 
 .brand-text {
@@ -208,14 +211,6 @@ h4 {
 	height: 90%;
 }
 
-.our-solutions div h4 {
-	color: #fff;
-	background: #000;
-	background: rgba(0, 0, 0, 0.76);
-	padding: 10px;
-	display: block;
-}
-
 
 
 
@@ -259,6 +254,45 @@ h4 {
 	text-shadow: 1px 1px 3px #000;
 	font-variant: small-caps;
 }
+
+
+/* Black shards */
+.our-solutions {
+	margin-bottom: 1em;
+	margin-left: 4em;
+}
+@media (max-width: 768px) {
+	.our-solutions {
+		margin-left: 0;
+	}
+}
+
+.our-solutions div h4 {
+	color: #fff;
+	padding: 5px;
+	-webkit-transform: skew(15deg);
+	-moz-transform: skew(15deg);
+	-ms-transform: skew(15deg);
+	transform: skew(15deg);
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	-ms-transform-origin: top left;
+	transform-origin: top left;
+}
+.our-solutions .edition {
+	content: '';
+	display: block;
+	background: #1A222A;
+	background: rgba(26, 34, 42, 0.8);
+	margin-right: 20px;
+	-webkit-transform: skew(-15deg);
+	-moz-transform: skew(-15deg);
+	-ms-transform: skew(-15deg);
+	transform: skew(-15deg);
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	-ms-transform-origin: top left;
+	transform-origin: top left;
 }
 
 
