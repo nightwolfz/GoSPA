@@ -39,6 +39,7 @@ func (c Index) Contact(post models.Contact) revel.Result {
 	email.From = "sales@sequoia-projects.be"
 	email.To = []string{"ryan@megidov.com"}
 	email.TemplatePath = "Contact/Email.template"
+	email.Attachment = post.CV
 	email.SendEmail(args)
 
 	return c.Render(post)

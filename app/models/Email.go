@@ -1,8 +1,10 @@
 package models
 
 import (
-	//"bytes"
-	"github.com/revel/revel/mail"
+	"bytes"
+	"github.com/revel/revel"
+	"github.com/jordan-wright/email"
+	"net/smtp"
 	"log"
 )
 
@@ -10,36 +12,38 @@ type Email struct {
 	To                  []string
 	Subject, From, Body string
 	TemplatePath        string
+	Attachment			[]byte
 }
 
 func (t Email) SendEmail(args map[string]interface{}) {
+	e := email.NewEmail()
+	e.From = t.From
+	e.To = t.To
+	e.Subject = t.Subject
+	e.Text = []byte("Text Body is, of course, supported!")
+	e.HTML = getViewTemplate(t.TemplatePath, args).Bytes()
+	e.Send("127.0.0.1:25", smtp.PlainAuth("", "", "", "127.0.0.1"))
 
-	server := "127.0.0.1"
-    /*server := "smtp-auth.mailprotect.be"
-    username := "email address of sender"
-    password := "password"*/
- 
-    /*auth := smtp.PlainAuth("",
-        username,
-        password,
-        server,
-    )*/
+	// We need to write t.Attachment to file then put path below
+	//e.AttachFile("test.txt")
+}
 
-
-	mailer := mail.Mailer{Server: server, Port: 25/*, UserName:username, Password:password, Auth:auth*/}
-	message := mail.Message{
-		From:      t.From,
-		To:        t.To,
-		Subject:   t.Subject,
-	}
-
-	err := message.RenderTemplate(t.TemplatePath, args)
+// Returns a parsed view template
+func getViewTemplate(templateFilePath string, args map[string]interface{}) *bytes.Buffer {
+	// Get the Template.
+	template, err := revel.MainTemplateLoader.Template(templateFilePath+".html")
 	if err != nil {
-		log.Println(err)
+		log.Print(err)
+		return nil
 	}
 
-	err = mailer.SendMessage(&message)
+	var b bytes.Buffer
+
+	err = template.Render(&b, args)
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
+		return nil
 	}
+
+	return &b
 }
