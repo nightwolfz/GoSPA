@@ -12,7 +12,7 @@ type Email struct {
 	To                  []string
 	Subject, From, Body string
 	TemplatePath        string
-	Attachment			[]byte
+	Attachment			string
 }
 
 func (t Email) SendEmail(args map[string]interface{}) {
@@ -22,10 +22,10 @@ func (t Email) SendEmail(args map[string]interface{}) {
 	e.Subject = t.Subject
 	e.Text = []byte("Text Body is, of course, supported!")
 	e.HTML = getViewTemplate(t.TemplatePath, args).Bytes()
+	if t.Attachment != "" {
+		e.AttachFile(t.Attachment)
+	}
 	e.Send("127.0.0.1:25", smtp.PlainAuth("", "", "", "127.0.0.1"))
-
-	// We need to write t.Attachment to file then put path below
-	//e.AttachFile("test.txt")
 }
 
 // Returns a parsed view template
