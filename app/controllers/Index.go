@@ -58,6 +58,7 @@ func (c Index) Contact(post models.Contact) revel.Result {
 	args["info"] = post
 	args["Attachment"] = "In attachment (if any)"
 
+
 	email := new(models.Email)
 
 	if post.IsClient {
@@ -66,8 +67,8 @@ func (c Index) Contact(post models.Contact) revel.Result {
 		email.Subject = fmt.Sprintf("Talent: %s", post.Name)
 	}
 
-	email.From = "sales@sequoia-projects.be"
-	email.To = []string{"sales@sequoia-projects.be"}
+	email.From = "Sales <sequoia.projects@gmail.com>"
+	email.To = "sales@sequoia-projects.be"
 	email.TemplatePath = "Contact/Email.template"
 	email.Attachment = GetUploadedFilePath(c.Request.MultipartForm)
 	email.SendEmail(args)

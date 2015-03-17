@@ -47,7 +47,7 @@ func main() {
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((*models.Contact)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					75: []string{ 
+					76: []string{ 
 						"post",
 					},
 				},

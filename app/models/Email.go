@@ -3,29 +3,40 @@ package models
 import (
 	"bytes"
 	"github.com/revel/revel"
-	"github.com/jordan-wright/email"
-	"net/smtp"
+	//"github.com/jordan-wright/email"
+	"github.com/SlyMarbo/gmail"
+	//"net/smtp"
 	"log"
 )
 
 type Email struct {
-	To                  []string
+	To                  string
 	Subject, From, Body string
 	TemplatePath        string
 	Attachment			string
 }
 
 func (t Email) SendEmail(args map[string]interface{}) {
-	e := email.NewEmail()
-	e.From = t.From
-	e.To = t.To
-	e.Subject = t.Subject
-	e.Text = []byte("Text Body is, of course, supported!")
-	e.HTML = getViewTemplate(t.TemplatePath, args).Bytes()
-	if t.Attachment != "" {
-		e.AttachFile(t.Attachment)
+
+	/*
+	mTLSConfig := &tls.Config{
+	    InsecureSkipVerify: true,
+	    ServerName:         net.SplitHostPort("smtp.gmail.com:587"),
+	}*/
+	//com-basicem-smtp003.srv.combell-ops.net:25
+
+	body := string(getViewTemplate(t.TemplatePath, args).Bytes()[:])
+
+	e := gmail.Compose(t.Subject, body)
+	e.From = ""
+	e.Password = ""
+	e.ContentType = "text/html; charset=utf-8"
+	e.AddRecipient(t.To)
+	e.Attach(t.Attachment)
+	err := e.Send()
+	if err != nil {
+		log.Print(err)
 	}
-	e.Send("127.0.0.1:25", smtp.PlainAuth("", "", "", "127.0.0.1"))
 }
 
 // Returns a parsed view template
