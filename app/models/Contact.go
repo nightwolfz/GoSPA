@@ -16,9 +16,13 @@ func (t *Contact) Validate(v *revel.Validation) {
 
 	v.Check(t.Name,
 		revel.Required{},
-		revel.MaxSize{20},
+		revel.MaxSize{40},
 		revel.MinSize{4},
 	)
+
+	v.Check(t.Name, revel.MaxSize{40})
+	v.Check(t.Job, revel.MaxSize{40})
+	v.Check(t.Reference, revel.MaxSize{40})
 
 	if t.Phone == "" {
 		v.Check(t.Email,

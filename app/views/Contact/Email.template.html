@@ -1,46 +1,49 @@
 <html>
 <head>
 	<style type="text/css">
-	small {
+	#sequoia-msg small {
 		color: #777;
 	}
-	table {
+	#sequoia-msg table {
 		font-family: Helvetica, Arial, sans-serif;
 		font-size: 14px;
 		border: 2px solid #ccc;
 	}
-	table td, table th {
+	#sequoia-msg table td, table th {
 		padding: 8px;
 		text-align: left;
 	}
-	table tr:nth-child(odd) td, table tr:nth-child(odd) th {
+	#sequoia-msg table tr:nth-child(odd) td, 
+	#sequoia-msg table tr:nth-child(odd) th {
 		background: #f3f3f3;
 	}
 	</style>
 </head>
 <body>
-	{{if .info.IsClient}}
-		<p>We received a <b>"Client"</b> request from sequoia-projects.be</p>
-	{{else}}
-		<p>We received a <b>"Talent"</b> request from sequoia-projects.be</p>
-	{{end}}
-
-	<table width="600">
-		<tr><th>Name</th><td>{{.info.Name}}</td></tr>
+	<div id="sequoia-msg">
 		{{if .info.IsClient}}
-		<tr><th>Company</th><td>{{.info.Company}}</td></tr>
-		<tr><th>Job</th><td>{{.info.Job}}</td></tr>
+			<p>We received a <b>"Client"</b> request from sequoia-projects.be</p>
+		{{else}}
+			<p>We received a <b>"Talent"</b> request from sequoia-projects.be</p>
 		{{end}}
-		<tr><th>Email</th><td>{{.info.Email}}</td></tr>
-		<tr><th>Phone</th><td>{{.info.Phone}}</td></tr>
-		<tr><th>Reference</th><td>{{.info.Reference}}</td></tr>
-		{{if not .info.IsClient}}
-		<tr><th>CV</th><td>{{.Attachment}}</td></tr>
-		{{end}}
-	</table>
 
-	<p>
-		<small>There's no virus scanning on sequoia-projects.be so hopefully combell does it for us.</small>
-	</p>
+		<table width="600">
+			<tr><th>Name</th><td>{{.info.Name}}</td></tr>
+			{{if .info.IsClient}}
+			<tr><th>Company</th><td>{{.info.Company}}</td></tr>
+			<tr><th>Job</th><td>{{.info.Job}}</td></tr>
+			{{end}}
+			<tr><th>Email</th><td>{{.info.Email}}</td></tr>
+			<tr><th>Phone</th><td>{{.info.Phone}}</td></tr>
+			<tr><th>Reference</th><td>{{.info.Reference}}</td></tr>
+			{{if not .info.IsClient}}
+			<tr><th>CV</th><td>{{.Attachment}}</td></tr>
+			{{end}}
+		</table>
+
+		<p>
+			<small>There's no virus scanning on sequoia-projects.be so hopefully combell does it for us.</small>
+		</p>
+	</div>
 </body>
 </html>

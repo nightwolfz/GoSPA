@@ -58,7 +58,6 @@ func (c Index) Contact(post models.Contact) revel.Result {
 	args["info"] = post
 	args["Attachment"] = "In attachment (if any)"
 
-
 	email := new(models.Email)
 
 	if post.IsClient {
@@ -75,3 +74,33 @@ func (c Index) Contact(post models.Contact) revel.Result {
 
 	return c.Render(post)
 }
+
+/*func (c Index) Contact(post models.Contact) revel.Result {
+
+	if c.Validation.HasErrors() {
+		c.Validation.Keep()
+		c.FlashParams()
+		return c.Redirect(Index.Index)
+	}
+
+	var args = make(map[string]interface{})
+	args["info"] = post
+	args["Attachment"] = "In attachment (if any)"
+
+
+	email := new(models.Email)
+
+	if post.IsClient {
+		email.Subject = fmt.Sprintf("Client: %s", post.Name)
+	} else {
+		email.Subject = fmt.Sprintf("Talent: %s", post.Name)
+	}
+
+	email.From = "Sales <sequoia.projects@gmail.com>"
+	email.To = "sales@sequoia-projects.be"
+	email.TemplatePath = "Contact/Email.template"
+	email.Attachment = GetUploadedFilePath(c.Request.MultipartForm)
+	email.SendEmail(args)
+
+	return c.Render(post)
+}*/
