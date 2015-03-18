@@ -10,6 +10,18 @@ $(document).ready(function(){
 		});
 	});
 	
+	$('.brand-heading span:first, .brand-heading span:last, .intro-text, .intro-text + h3').hide();
+	
+	setTimeout(function(){
+		$('.brand-heading span:first').fadeIn(600);
+		setTimeout(function(){
+			$('.brand-heading span:last').fadeIn(600, function(){
+				$('.intro-text').hide().fadeIn(600);
+				$('.intro-text + h3').hide().fadeIn(600);
+			});
+		}, 200);
+	}, 200);
+	
 });
 
 

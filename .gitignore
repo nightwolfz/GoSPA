@@ -69,3 +69,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+app/tmp/main.go
+app/tmp/main.go
+app/routes/routes.go
