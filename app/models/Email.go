@@ -27,7 +27,7 @@ func (t Email) SendEmail(args map[string]interface{}) {
 		e.AttachFile(t.Attachment)
 	}
 	
-	auth := smtp.PlainAuth("", "sequoia.projects@gmail.com", "aaaaaa7*", "smtp.gmail.com")
+	auth := smtp.PlainAuth("", "gospa@gmail.com", "aaaaaa7*", "smtp.gmail.com")
 	e.Send("smtp.gmail.com:587", auth)
 }
 
